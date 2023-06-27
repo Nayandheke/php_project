@@ -47,7 +47,7 @@ if (!$connection) {
 
         $query = "INSERT INTO employee_tbl (Name , Username, Password, Department, Location , Project) VALUES('$name','$username','$password','$department','$location','$project')";
 
-        echo $query;
+      
         $res = mysqli_query ($connection, $query);
         echo $res;
         if ($res) {
