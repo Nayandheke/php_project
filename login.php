@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($connection,$auth);
 
     $num_rows = mysqli_num_rows($result);
+    session_start();
     if($num_rows == 1) {
         $_SESSION["login"] = "OK";
         $_SESSION["username"] = $username;
@@ -31,18 +32,21 @@ if (isset($_POST['submit'])) {
     mysqli_free_result($result);
     mysqli_close($connection);
 
+    echo $_SESSION["login"];
+    echo $_SESSION["username"];
     header("Location: $redirect");
   exit();
-  session_start();
+//   session_start();
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST["username"]; 
+    // if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    //     $username = $_POST["username"]; 
 
-        $_SESSION["username"] = $username;
+    //     $_SESSION["username"] = $username;
 
-        header("Location: dashboard.php");
-        exit();
-    }
+    //     echo $_SESSION;
+    //     // header("Location: dashboard.php");
+    //     exit();
+    // }
 }
 ?>
 

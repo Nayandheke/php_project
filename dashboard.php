@@ -21,10 +21,15 @@
         $result = $connection->query($sql);
 
         session_start(); 
+
         if (isset($_SESSION["username"])) {
             $username = $_SESSION["username"];
+            echo  "username".$username;
+            echo $_SESSION["login"];
         } else {
             $username = "Guest";
+            echo $username;
+            echo $_SESSION["login"];
         }
     ?>
 
